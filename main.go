@@ -20,6 +20,8 @@ type (
 	}
 )
 
+var sourcePath = "/home/fabkli/code/else/country-flags/"
+
 func main() {
 	fmt.Println("Hello, World!")
 	content := readFile()
@@ -110,7 +112,7 @@ func main() {
 
 func printFlag(code string) (string, error) {
 
-	imageString, err := terminalimage.ImageToString("flags/"+strings.ToLower(code)+".png", 20, true)
+	imageString, err := terminalimage.ImageToString(sourcePath+"flags/"+strings.ToLower(code)+".png", 20, true)
 	if err != nil {
 		return "", err
 	}
@@ -120,7 +122,7 @@ func printFlag(code string) (string, error) {
 
 func readFile() string {
 	// file, err := os.Open("countries.json")
-	file, err := os.Open("de.json")
+	file, err := os.Open(sourcePath + "de.json")
 	if err != nil {
 		log.Fatal(err)
 	}
